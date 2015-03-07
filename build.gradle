@@ -1,0 +1,24 @@
+apply plugin: 'java'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile (["com.itextpdf:itextpdf:5.5.4",
+            "org.bouncycastle:bcmail-jdk16:1.46",
+            "org.bouncycastle:bcprov-jdk15on:1.49",
+            "org.bouncycastle:bctsp-jdk16:1.46",
+            "org.bouncycastle:bcpkix-jdk15on:1.49",
+            "org.apache.santuario:xmlsec:1.5.1"
+    ])
+    testCompile (["com.itextpdf:itextpdf:5.5.4",
+                  "junit:junit:4.12",
+                  "org.bouncycastle:bcmail-jdk16:1.46",
+                  "org.bouncycastle:bcprov-jdk15on:1.49",
+                  "org.bouncycastle:bctsp-jdk16:1.46",
+                  "org.bouncycastle:bcpkix-jdk15on:1.49",
+                  "org.apache.santuario:xmlsec:1.5.1",
+                  "commons-io:commons-io:2.4"
+    ])
+}
