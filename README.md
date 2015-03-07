@@ -3,7 +3,9 @@ Meet PdfCorr
 
 This is a light-weight service, using the iText PDF manipulation Java Library, that is used to simply encrypt and password-protect a PDF file.
  
-This service and any applications that use it must always remain open-source. *Reference the note below regarding iText's license*
+This service and any applications that use it must always remain open-source.
+
+*Reference the note below regarding iText's license*
 
 ============ THE AFFERO GENERAL PUBLIC LICENSE (AGPL) ============
 
