@@ -1,5 +1,7 @@
+
 Meet PdfCorr
 ============
+[![Build Status](https://travis-ci.org/Devcorr/pdfcorr.svg?branch=master)](https://travis-ci.org/Devcorr/pdfcorr)
 
 This is a light-weight service, using the iText PDF manipulation Java Library, that is used to simply encrypt and password-protect a PDF file.
  
