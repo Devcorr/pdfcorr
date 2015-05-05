@@ -2,13 +2,13 @@
 Meet PdfCorr
 ============
 [![Build Status](https://travis-ci.org/Devcorr/pdfcorr.svg?branch=master)](https://travis-ci.org/Devcorr/pdfcorr)
+[![License](https://www.gnu.org/graphics/agplv3-88x31.png)](https://www.gnu.org/licenses/agpl-3.0.html)
 
 This is a light-weight service, using the iText PDF manipulation Java Library, that is used to simply encrypt and password-protect a PDF file.
  
 This service and any applications that use it must always remain open-source.
 
-*Reference the note below regarding iText's license*
-
+This service is licensed via:
 ============ THE AFFERO GENERAL PUBLIC LICENSE (AGPL) ============
 
-While the AGPL license has no direct financial cost there are clear requirements for AGPL use. Buying a commercial license is mandatory as soon as you develop activities involving the iText software without disclosing the source code of your own applications.
+*Reference the license file regarding iText's copyright as well as the PdfCorr copyright*
