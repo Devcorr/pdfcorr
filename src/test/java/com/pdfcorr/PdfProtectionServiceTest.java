@@ -51,24 +51,16 @@ public class PdfProtectionServiceTest {
     @Test(expected = BadPasswordException.class)
     public void protectPdfDocumentTest() throws IOException{
         String testPassword = "test1234";
-        try {
-            this.getTestProtectionService().protectPdfDocument(testPassword, this.getTestDocumentToProtect());
-            PdfReader reader = new PdfReader(this.getTestProtectedDocument().getPath());
-        } catch (DocumentException e) {
-            e.printStackTrace();
-        }
+        this.getTestProtectionService().protectPdfDocument(testPassword, this.getTestDocumentToProtect());
+        PdfReader reader = new PdfReader(this.getTestProtectedDocument().getPath());
     }
 
     @Test
     public void openProtectPdfDocumentWithPassword() throws IOException{
         String testPassword = "test1234";
-        try {
-            this.getTestProtectionService().protectPdfDocument(testPassword, this.getTestDocumentToProtect());
-            PdfReader reader = new PdfReader(this.getTestProtectedDocument().getPath(), testPassword.getBytes());
-            assertNotNull(reader);
-        } catch (DocumentException e) {
-            e.printStackTrace();
-        }
+        this.getTestProtectionService().protectPdfDocument(testPassword, this.getTestDocumentToProtect());
+        PdfReader reader = new PdfReader(this.getTestProtectedDocument().getPath(), testPassword.getBytes());
+        assertNotNull(reader);
     }
 
     /**
