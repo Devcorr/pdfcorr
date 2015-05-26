@@ -1,6 +1,7 @@
 package com.pdfcorr.service;
 
 import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.exceptions.BadPasswordException;
 import com.itextpdf.text.pdf.PdfEncryptor;
 import com.itextpdf.text.pdf.PdfReader;
 import com.itextpdf.text.pdf.PdfWriter;
@@ -14,30 +15,18 @@ public class PdfProtectionService {
 
     private String errorMessage;
 
-    public void protectPdfDocument(String encryptedPassword, File documentToProtect) {
-        try {
-            String decryptedPassword = encryptedPassword.trim();
-            InputStream is = new FileInputStream(documentToProtect);
-            PdfReader documentToEncryptReader = new PdfReader(is);
-            is.close();
+    public void protectPdfDocument(String encryptedPassword, File documentToProtect) throws IOException, DocumentException {
+        String decryptedPassword = encryptedPassword.trim();
+        InputStream is = new FileInputStream(documentToProtect);
+        PdfReader documentToEncryptReader = new PdfReader(is);
+        is.close();
 
-            OutputStream os = new FileOutputStream(documentToProtect.getPath());
-            try {
-                PdfEncryptor.encrypt(documentToEncryptReader, os, true, decryptedPassword, decryptedPassword,
-                        (PdfWriter.ALLOW_COPY | PdfWriter.ALLOW_PRINTING | PdfWriter.ALLOW_SCREENREADERS | PdfWriter.ALLOW_FILL_IN) | PdfWriter.ALLOW_ASSEMBLY | PdfWriter.ALLOW_MODIFY_CONTENTS | PdfWriter.ALLOW_MODIFY_ANNOTATIONS);
-            }
-            catch(DocumentException de) {
-                this.setErrorMessage("There was something wrong with the file used. Try another file.");
-                de.printStackTrace();
-            }
+        OutputStream os = new FileOutputStream(documentToProtect.getPath());
+        PdfEncryptor.encrypt(documentToEncryptReader, os, true, decryptedPassword, decryptedPassword,
+                (PdfWriter.ALLOW_COPY | PdfWriter.ALLOW_PRINTING | PdfWriter.ALLOW_SCREENREADERS | PdfWriter.ALLOW_FILL_IN) | PdfWriter.ALLOW_ASSEMBLY | PdfWriter.ALLOW_MODIFY_CONTENTS | PdfWriter.ALLOW_MODIFY_ANNOTATIONS);
 
-            os.close();
-        }
-        catch(IOException e) {
-            this.setErrorMessage("There was something wrong with the file used. Try another file.");
-            e.printStackTrace();
-        }
 
+        os.close();
     }
 
     public String getErrorMessage() {
